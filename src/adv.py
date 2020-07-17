@@ -1,7 +1,7 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
-
 room = {
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -21,7 +21,6 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -38,9 +37,12 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+player = Player('King Arthur', room[0])
 # Write a loop that:
 #
+current_room = room[0]
+print(f' player: {player} is currently in {room[0]}')
+
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
@@ -49,3 +51,12 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+# print("After a long night of drinking, you wake up outside a strange cave that you don't \
+#         remember seeing last night. You hear a scream and decide to go investigate.")
+# move = input('Which direction would you like to go?')
+# if move == n_to:
+#     location == ('You have entered the foyer room.')
+
+game_on = True
+player_name = input("What is your name mighty adventurer???"
+current_player = Player(name = player_name, rooms = room)
